@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mycloset
+    username: root
+    password: 37106
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+  aws:
+    access-key: your access-key
+    secret-key: your secret-key
+    s3:
+      endpoint: your endpoint
+      Bucket: your-Bucket
+      region: your-region
