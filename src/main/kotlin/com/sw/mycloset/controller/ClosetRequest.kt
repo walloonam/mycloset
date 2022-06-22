@@ -1,3 +1,3 @@
 package com.sw.mycloset.controller
 
-data class ClosetRequest(val closetUser: String, val closetName: String)
+data class ClosetRequest(val closetUser: String, val closetName: String, val priorty: Boolean)

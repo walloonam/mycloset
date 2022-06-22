@@ -13,15 +13,39 @@ class ClothesService(
     fun getClothes() = clothesRepository.findAll()
 
     fun insertClothes(
+        clothesUser: String,
         clothesName: String,
         clothesCloset: String,
         clothesCategory: String,
-        clothesBuy: Date,
-        clothesSeason: String
-    ): Clothes =  clothesRepository.save(Clothes(clothesName = clothesName, clothesCloset = clothesCloset, clothesCategory = clothesCategory, clothesBuy = clothesBuy, clothesSeason = clothesSeason))
+        clothesBuy: String,
+        clothesSeason: String,
+        ):Clothes = clothesRepository.save(
+                Clothes(
+                    clothesUser = clothesUser,
+                    clothesName = clothesName,
+                    clothesCloset = clothesCloset,
+                    clothesCategory = clothesCategory,
+                    clothesBuy = clothesBuy,
+                    clothesSeason = clothesSeason,
+                )
+        )
 
-    fun updateClothes(clothesId: Long): Clothes{
+
+    fun updateClothes(clothesId: Long,
+                      clothesUser: String,
+                      clothesName: String,
+                      clothesCloset: String,
+                      clothesCategory: String,
+                      clothesBuy: String,
+                      clothesSeason: String,
+    ): Clothes{
         val clothes = clothesRepository.findByIdOrNull(clothesId) ?: throw Exception()
+        clothes.clothesUser=clothesUser
+        clothes.clothesName=clothesName
+        clothes.clothesCloset=clothesCloset
+        clothes.clothesCategory=clothesCategory
+        clothes.clothesBuy=clothesBuy
+        clothes.clothesSeason=clothesSeason
         return clothesRepository.save(clothes)
     }
 

@@ -15,8 +15,11 @@ class UserService (
 
     fun insertUser(userEmail: String,  userName: String, userPwd: String): User = userRepository.save(User(userEmail = userEmail, userName = userName, userPwd = userPwd))
 
-    fun updateUser(userId: Long): User {
+    fun updateUser(userId: Long, userEmail: String, userName: String, userPwd: String): User {
         val user = userRepository.findByIdOrNull(userId) ?: throw Exception()
+        user.userEmail=userEmail
+        user.userName=userName
+        user.userPwd=userPwd
         return userRepository.save(user)
     }
 

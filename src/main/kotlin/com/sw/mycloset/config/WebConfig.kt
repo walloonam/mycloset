@@ -11,6 +11,7 @@ class WebConfig : WebMvcConfigurer{
         registry
             .addMapping("/**")
             .allowedOrigins("http://localhost:3000")
+            .allowedOrigins("http://127.0.0.1:5501/")
             .allowedMethods(
                 HttpMethod.GET.name,
                 HttpMethod.POST.name,

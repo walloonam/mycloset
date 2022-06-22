@@ -21,3 +21,7 @@ spring:
       endpoint: your endpoint
       Bucket: your-Bucket
       region: your-region
+
+custom:
+  path:
+    upload-images: '/var/lib/jenkins/area_deploy/jiniworld/upload-images/'

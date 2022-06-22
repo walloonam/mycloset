@@ -20,10 +20,10 @@ class ClosetController (
     fun getCloset() = closetService.getCloset()
 
     @PostMapping
-    fun insertCloset(@RequestBody closetRequest: ClosetRequest)= closetService.insertCloset(closetRequest.closetUser ,closetRequest.closetName)
+    fun insertCloset(@RequestBody closetRequest: ClosetRequest)= closetService.insertCloset(closetRequest.closetUser ,closetRequest.closetName, closetRequest.priorty)
 
     @PutMapping(path=["{closetId}"])
-    fun updateCloset(@PathVariable("closetId") closetId: Long) = closetService.updateCloset(closetId)
+    fun updateCloset(@PathVariable("closetId") closetId: Long, @RequestBody closetRequest: ClosetRequest) = closetService.updateCloset(closetId,closetRequest.priorty)
 
     @DeleteMapping(path=["{closetId}"])
     fun deleteCloset(@PathVariable("closetId") closetId: Long) = closetService.deleteCloset(closetId)

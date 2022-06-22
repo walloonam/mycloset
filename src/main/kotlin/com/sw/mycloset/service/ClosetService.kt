@@ -11,10 +11,11 @@ class ClosetService (
         ){
     fun getCloset() =  closetRepository.findAll()
 
-    fun insertCloset(closetUser: String,  closetName : String): Closet = closetRepository.save(Closet(closetUser= closetUser, closetName = closetName))
+    fun insertCloset(closetUser: String,  closetName : String, priorty: Boolean): Closet = closetRepository.save(Closet(closetUser= closetUser, closetName = closetName, priorty = priorty))
 
-    fun updateCloset(closetId: Long): Closet {
+    fun updateCloset(closetId: Long, priorty: Boolean): Closet {
         val closet = closetRepository.findByIdOrNull(closetId) ?: throw Exception()
+        closet.priorty=priorty
         return closetRepository.save(closet)
     }
 

@@ -1,6 +1,5 @@
 package com.sw.mycloset.repository
 
-import java.awt.Image
 import java.util.Date
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -9,10 +8,13 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 @Entity
-class Clothes (
+class Clothes(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id : Long? = null,
+    var id: Long? = null,
+
+    @Column(nullable = false)
+    var clothesUser: String,
 
     @Column(nullable = false)
     var clothesName: String,
@@ -24,12 +26,11 @@ class Clothes (
     var clothesCategory: String,
 
     @Column(nullable = false)
-    var clothesBuy: Date,
+    var clothesBuy: String,
 
     @Column(nullable = false)
-    var clothesSeason: String
+    var clothesSeason: String,
 
-
-)
+    )
 
 //이름 옷장 카테고리 구매일자 계절  사진

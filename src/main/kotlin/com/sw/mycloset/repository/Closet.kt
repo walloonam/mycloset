@@ -1,5 +1,6 @@
 package com.sw.mycloset.repository
 
+import org.hibernate.annotations.ColumnDefault
 import javax.persistence.*
 
 @Entity
@@ -13,4 +14,9 @@ class Closet (
 
     @Column(nullable = false)
     var closetName: String,
+
+    @Column(nullable = false)
+    @ColumnDefault("false")
+    var priorty: Boolean,
+
 )
